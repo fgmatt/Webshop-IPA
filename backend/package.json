@@ -4,12 +4,27 @@
   "description": "",
   "main": "jest.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon src/index.js",
+    "start:db": "/Users/florinmattmuller/mongodb/bin/mongod -dbpath=/Users/florinmattmuller/webshop-ipa-data",
+    "start": "concurrently npm:start:*"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^6.0.2",
     "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.23.0",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^8.2.0",
+    "env": "^0.0.2",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "graphql": "^15.5.0",
+    "helmet": "^4.5.0",
+    "hpp": "^0.2.3",
+    "mongoose": "^5.12.7"
   }
 }
