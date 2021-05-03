@@ -15,7 +15,7 @@ require("./db");
 // keys
 const { port } = require("./keys");
 
-// express server instance
+// calling express server
 const app = express();
 
 // applying apollo server to express
@@ -36,6 +36,7 @@ app.use(csurf());
 app.use(limiter);
 
 // start express
+// port 3250
 app.listen(port, () => {
   console.log(`Server ready at http://localhost:${port}`);
 });

@@ -5,7 +5,10 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Query {
     getDepartmentAndProducts(department: String!): Department!
-    getProductWithSpecifications(department: String!): Product!
+    getProductWithSpecifications(
+      productName: String!
+      department: String!
+    ): Product!
     getUserAddressInformation(email: String!): AddressInformation!
     getUserToken(email: String!): Token!
     checkUserHasCardInformation(email: String!): Boolean!
@@ -20,8 +23,18 @@ const typeDefs = gql`
       cardNr: String!
       cvv: Int!
     ): String!
-    setUserAddressInformation(email: String!): AddressInformation!
+    setUserAddressInformation(
+      email: String!
+      firstname: String!
+      lastname: String!
+      street: String!
+      postcode: Number!
+      locality: String!
+      country: String!
+    ): AddressInformation!
   }
+
+  # custom types
 
   type Department {
     department: String!
@@ -29,6 +42,7 @@ const typeDefs = gql`
   }
 
   type Product {
+    _id: String!
     productName: String!
     imageUrl: String!
     price: String!
