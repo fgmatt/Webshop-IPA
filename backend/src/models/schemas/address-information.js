@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 // schema definition
-const AddressInformationSchema = new.mongoose.Schema(
+const AddressInformationSchema = new mongoose.Schema(
   {
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },

@@ -1,33 +1,44 @@
+const {
+  checkUserHasCardInformation,
+  getDepartmentAndProducts,
+  getUserAddressInformation,
+  getUserToken,
+  getProductWithSpecifications,
+  setUserAddressInformation,
+  setUserCardInformation,
+  setUserWithToken,
+} = require("../services");
+
 const resolvers = {
   // retreiving data
   Query: {
     getDepartmentAndProducts: (parent, args) => {
-      return;
+      return getDepartmentAndProducts(args);
     },
     getProductWithSpecifications: (parent, args) => {
-      return;
+      return getProductWithSpecifications(args);
     },
     getUserAddressInformation: (parent, args) => {
-      return;
+      return getUserAddressInformation(args);
     },
     getUserToken: (parent, args) => {
-      return;
+      return getUserToken(args);
     },
     checkUserHasCardInformation: (parent, args) => {
-      return;
+      return checkUserHasCardInformation(args);
     },
   },
 
   //manipulating data
   Mutation: {
     setUserWithToken: (parent, args) => {
-      return;
+      return setUserWithToken(args);
     },
     setUserCardInformation: (parent, args) => {
-      return;
+      return setUserCardInformation(args);
     },
     setUserAddressInformation: (parent, args) => {
-      return;
+      return setUserAddressInformation(args);
     },
   },
 };

@@ -28,7 +28,7 @@ const typeDefs = gql`
       firstname: String!
       lastname: String!
       street: String!
-      postcode: Number!
+      postcode: Int!
       locality: String!
       country: String!
     ): AddressInformation!
