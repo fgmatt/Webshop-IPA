@@ -15,6 +15,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    setProductData(department: String!): Department!
     setUserWithToken(email: String!): String!
     setUserCardInformation(
       email: String!

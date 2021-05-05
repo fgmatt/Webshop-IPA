@@ -7,7 +7,11 @@ const User = require("./userService");
 // token
 const tokenSign = require("../../jwt");
 
-//
+/**
+ * set a given user a JWT token
+ * @param {object} args
+ * @returns {any} confirming string
+ */
 const setUserWithToken = async ({ email }) => {
   // check if email exists
   if (!email) {

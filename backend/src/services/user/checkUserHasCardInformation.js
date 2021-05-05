@@ -4,8 +4,12 @@ const { UserInputError, ApolloError } = require("apollo-server-express");
 // service
 const User = require("./userService");
 
-//
-const getUserAddressInformation = async ({ email }) => {
+/**
+ * Check if user has credit card information
+ * @param {object} args
+ * @returns {Promise<boolean>} true if has Card Information
+ */
+const checkUserHasCardInformation = async ({ email }) => {
   // check if email exists
   if (!email) {
     throw await new UserInputError("You must provide an email");
@@ -24,4 +28,4 @@ const getUserAddressInformation = async ({ email }) => {
   return await true;
 };
 
-module.exports = getUserAddressInformation;
+module.exports = checkUserHasCardInformation;

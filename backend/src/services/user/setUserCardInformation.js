@@ -4,7 +4,11 @@ const { UserInputError } = require("apollo-server-express");
 // service
 const User = require("./userService");
 
-//
+/**
+ * set a user's card information
+ * @param {object} args
+ * @returns {Promise<any>} setted card information
+ */
 const setUserCardInformation = async ({
   email,
   fullname,

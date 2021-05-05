@@ -4,7 +4,11 @@ const { UserInputError } = require("apollo-server-express");
 // service
 const User = require("./userService");
 
-//
+/**
+ * Retrieving the user's token
+ * @param {object} args
+ * @returns {Promise<any>} user's token
+ */
 const getUserToken = async ({ email }) => {
   // check if email exists
   if (!email) {

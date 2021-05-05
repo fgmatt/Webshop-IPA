@@ -4,7 +4,11 @@ const { ApolloError, UserInputError } = require("apollo-server-express");
 // service
 const Department = require("./departmentService");
 
-// get department with products from database
+/**
+ * get department with products from database
+ * @param {object} args
+ * @returns {Promise<any>} searched Department
+ */
 const getDepartmentWithProducts = async ({ department }) => {
   // check if department exists
   if (!department) {

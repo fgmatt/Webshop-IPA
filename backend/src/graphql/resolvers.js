@@ -4,6 +4,7 @@ const {
   getUserAddressInformation,
   getUserToken,
   getProductWithSpecifications,
+  setProductData,
   setUserAddressInformation,
   setUserCardInformation,
   setUserWithToken,
@@ -12,11 +13,11 @@ const {
 const resolvers = {
   // retreiving data
   Query: {
+    checkUserHasCardInformation: (parent, args) => {
+      return checkUserHasCardInformation(args);
+    },
     getDepartmentAndProducts: (parent, args) => {
       return getDepartmentAndProducts(args);
-    },
-    getProductWithSpecifications: (parent, args) => {
-      return getProductWithSpecifications(args);
     },
     getUserAddressInformation: (parent, args) => {
       return getUserAddressInformation(args);
@@ -24,21 +25,24 @@ const resolvers = {
     getUserToken: (parent, args) => {
       return getUserToken(args);
     },
-    checkUserHasCardInformation: (parent, args) => {
-      return checkUserHasCardInformation(args);
+    getProductWithSpecifications: (parent, args) => {
+      return getProductWithSpecifications(args);
     },
   },
 
   //manipulating data
   Mutation: {
-    setUserWithToken: (parent, args) => {
-      return setUserWithToken(args);
+    setProductData: (parent, args) => {
+      return setProductData(args);
+    },
+    setUserAddressInformation: (parent, args) => {
+      return setUserAddressInformation(args);
     },
     setUserCardInformation: (parent, args) => {
       return setUserCardInformation(args);
     },
-    setUserAddressInformation: (parent, args) => {
-      return setUserAddressInformation(args);
+    setUserWithToken: (parent, args) => {
+      return setUserWithToken(args);
     },
   },
 };
