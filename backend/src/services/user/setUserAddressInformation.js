@@ -28,13 +28,13 @@ const setUserAddressInformation = async ({
     !locality ||
     !country
   ) {
-    throw await new UserInputError("You must provide an email");
+    throw new UserInputError("You must provide an email");
   }
 
   let user = await User.findOne({ email });
 
   if (!user) {
-    throw await new UserInputError("User not found");
+    throw new UserInputError("User not found");
   }
 
   user.addressInformation = {

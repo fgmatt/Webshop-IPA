@@ -12,20 +12,20 @@ const User = require("./userService");
 const checkUserHasCardInformation = async ({ email }) => {
   // check if email exists
   if (!email) {
-    throw await new UserInputError("You must provide an email");
+    throw new UserInputError("You must provide an email");
   }
 
   const user = await User.findOne({ email });
 
   if (!user) {
-    throw await new UserInputError("User not found");
+    throw new UserInputError("User not found");
   }
 
   if (!user.cardInformation) {
-    throw await new ApolloError("User has not card information");
+    throw new ApolloError("User has not card information");
   }
 
-  return await true;
+  return true;
 };
 
 module.exports = checkUserHasCardInformation;

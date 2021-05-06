@@ -18,13 +18,13 @@ const setUserCardInformation = async ({
 }) => {
   // check if email exists
   if (!email || !fullname || !validThru || !cardNr || !cvv) {
-    throw await new UserInputError("You must provide an email");
+    throw new UserInputError("You must provide an email");
   }
 
   let user = await User.findOne({ email });
 
   if (!user) {
-    throw await new UserInputError("User not found");
+    throw new UserInputError("User not found");
   }
 
   user.cardInformation = {
@@ -37,7 +37,7 @@ const setUserCardInformation = async ({
 
   await user.save();
 
-  return await "Card created";
+  return "Card created";
 };
 
 module.exports = setUserCardInformation;

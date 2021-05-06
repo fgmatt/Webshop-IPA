@@ -6,7 +6,7 @@ const Department = require("./departmentService");
 
 /**
  * get product by his productName and concerning department
- * @param {object} args
+ * @param {object{department<string>, productName<string>}} args
  * @returns {Promise<any>} product with specifications
  */
 const getProductWithSpecifications = async ({ productName, department }) => {

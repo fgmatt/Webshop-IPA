@@ -20,6 +20,8 @@ const max70AndOnlyLetters = (str) => {
   if (vInputA) {
     throw new UserInputError("It has a digit other than a letter");
   }
+
+  return true;
 };
 
 //
@@ -41,6 +43,8 @@ const max70AndNoSpecialCharacters = (str) => {
   if (vInputA) {
     throw new UserInputError("It has a digit other than a letter");
   }
+
+  return true;
 };
 
 module.exports = { max70AndOnlyLetters, max70AndNoSpecialCharacters };

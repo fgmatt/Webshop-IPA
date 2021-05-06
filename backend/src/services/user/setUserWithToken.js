@@ -15,7 +15,7 @@ const tokenSign = require("../../jwt");
 const setUserWithToken = async ({ email }) => {
   // check if email exists
   if (!email) {
-    throw await new UserInputError("You must provide an email");
+    throw new UserInputError("You must provide an email");
   }
 
   let user = await User.findOne({ email });
@@ -31,7 +31,7 @@ const setUserWithToken = async ({ email }) => {
 
   await user.save();
 
-  return await "Token created";
+  return "Token created";
 };
 
 module.exports = setUserWithToken;
