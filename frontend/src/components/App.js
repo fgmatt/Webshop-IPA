@@ -1,3 +1,15 @@
+// library
+import React from "react";
+
+// routing in React
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// components
+import Startsite from "./startsite";
+
+// routes
+import { rHome } from "../routes-name";
+
 // style sheets
 import "./App.css";
 import "./style.css";
@@ -5,22 +17,13 @@ import "./style.css";
 // Main app component
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path={rHome}>
+          <Startsite />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

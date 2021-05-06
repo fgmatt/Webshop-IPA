@@ -1,0 +1,38 @@
+.authenticationButton button {
+  float: right;
+  margin: 5px 10px 0 0;
+}
+
+.navbarGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.navLinks {
+  margin-left: 10px;
+  width: 15%;
+}
+
+.navLinks p {
+  margin-bottom: 0px;
+  padding: 8px 0 8px 0;
+}
+
+.navLinks p:hover {
+  background-color: #eeee;
+}
+
+.navLinks a {
+  text-decoration: none;
+  color: black;
+}
+
+.navLinks a:hover {
+  color: #000077;
+}
+
+.startsite {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
+}
