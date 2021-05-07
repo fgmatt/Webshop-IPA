@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 
 import NavBar from "./elements/navBar";
 
-import GET_DEPARTMENT_AND_PRODUCTS from "../graphql/getDepartmentAndProducts";
+import getDepartmentAndProducts from "../graphql/queries/getDepartmentAndProducts";
 
 const Startsite = () => {
   const i = Math.floor(Math.random() * 3);
@@ -12,7 +12,7 @@ const Startsite = () => {
 
   const departmentArray = ["desktop_pc", "laptop", "monitor"];
 
-  const { loading, error, data } = useQuery(GET_DEPARTMENT_AND_PRODUCTS, {
+  const { loading, error, data } = useQuery(getDepartmentAndProducts, {
     variables: { department: departmentArray[i] },
   });
 
@@ -24,7 +24,7 @@ const Startsite = () => {
   return (
     <div>
       <NavBar />
-      <div className="startsite">
+      <div className="product">
         {data && (
           <div>
             <p>{randomProduct.productName}</p>

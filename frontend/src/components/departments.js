@@ -4,8 +4,19 @@ import { useQuery } from "@apollo/client";
 
 import NavBar from "./elements/navBar";
 
-const Department = ({ department }) => {
-  const { loading, error, data } = useQuery(GET_DEPARTMENT_AND_PRODUCTS, {
+import {
+  rDesktopPcs,
+  rLaptops,
+  rMonitors,
+  rProductDetails,
+} from "../routes-name";
+
+import { getDepartmentAndProducts } from "../graphql";
+
+const Department = ({ department, rDepartment }) => {
+  const history = useHistory();
+
+  const { loading, error, data } = useQuery(getDepartmentAndProducts, {
     variables: { department },
   });
 
@@ -14,25 +25,47 @@ const Department = ({ department }) => {
     products = data.getDepartmentAndProducts.products;
   }
 
+  const handleProductDetails = (productName) => {
+    sessionStorage.setItem("department", department);
+    sessionStorage.setItem("productName", productName);
+    history.push(rDepartment + rProductDetails);
+  };
+
   return (
     <div>
       {" "}
       <NavBar />
-      <div></div>
+      <div className="gridProducts">
+        {data &&
+          products.map((product) => (
+            <div
+              onClick={() => handleProductDetails(product.productName)}
+              className="product"
+            >
+              <img
+                className="productImage"
+                src={product.imageUrl}
+                alt="product image"
+              />
+              <p className="productName">{product.productName}</p>
+              <p className="productPrice">{product.price}</p>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };
 
 const DesktopPCs = () => {
-  return <Department department="desktop_pc" />;
+  return <Department department="desktop_pc" rDepartment={rDesktopPcs} />;
 };
 
 const Laptops = () => {
-  return <Department department="laptop" />;
+  return <Department department="laptop" rDepartment={rLaptops} />;
 };
 
 const Monitors = () => {
-  return <Department department="monitor" />;
+  return <Department department="monitor" rDepartment={rMonitors} />;
 };
 
 export default { DesktopPCs, Laptops, Monitors };

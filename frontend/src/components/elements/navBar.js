@@ -61,7 +61,7 @@ const NavBar = () => {
     <div className="navbar">
       <div className="navbarGrid">
         <div>
-          <p className="departements" onClick={handleDepartment}>
+          <p className="departments" onClick={handleDepartment}>
             Departments <span className="downwardsArrow">▼</span>
           </p>
         </div>

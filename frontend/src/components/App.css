@@ -6,6 +6,8 @@
 .navbarGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: #eeff;
+  padding-bottom: 5px;
 }
 
 .navLinks {
@@ -31,8 +33,67 @@
   color: #000077;
 }
 
-.startsite {
+.departments {
+  margin: 12px 0 0 10px;
+  width: 120px;
+  font-weight: bold;
+}
+
+.departments:hover {
+  cursor: pointer;
+}
+
+.downwardsArrow {
+  font-size: 80%;
+}
+
+.product {
   width: 50%;
   margin-left: 25%;
   margin-top: 10%;
+}
+
+.gridProducts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 30px;
+}
+
+.productName {
+  height: 200px;
+}
+
+.productPrice {
+  font-weight: bold;
+}
+
+.product {
+  padding: 80px 10px 0 10px;
+}
+
+.product :hover {
+  cursor: pointer;
+}
+
+.productDetails {
+  width: 80%;
+  margin: 10px 10px 0 10px;
+}
+
+.specifications {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px;
+}
+
+.titleSpecifications {
+  padding-left: 5px;
+}
+
+.backgroundSpecifications {
+  background-color: #eeeeee;
+}
+
+.priceDetails {
+  font-size: 125%;
 }

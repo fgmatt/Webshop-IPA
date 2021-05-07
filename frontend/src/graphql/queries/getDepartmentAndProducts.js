@@ -8,10 +8,6 @@ export default gql`
         imageUrl
         productName
         price
-        specifications {
-          name
-          value
-        }
       }
     }
   }
