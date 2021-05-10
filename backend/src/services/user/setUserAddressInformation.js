@@ -38,7 +38,6 @@ const setUserAddressInformation = async ({
   }
 
   user.addressInformation = {
-    email,
     firstname,
     lastname,
     street,

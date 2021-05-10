@@ -8,11 +8,18 @@ const { rainforest_api_key } = require("../../keys");
 // service
 const Department = require("./departmentService");
 
+/**
+ * set Productdata from Rainforest API
+ * @param {object{department<string>}} args
+ * @returns {Promise<any>} product with specifications
+ */
 const setProductData = async ({ department }) => {
+  // if no department exists
   if (!department) {
     throw new UserInputError("You must provide a department");
   }
 
+  // parameters for axios request
   let params = {
     api_key: rainforest_api_key,
     type: "search",
@@ -20,6 +27,7 @@ const setProductData = async ({ department }) => {
     search_term: department,
   };
 
+  // retrieve request from rainforest API
   const data = await axios
     .get("https://api.rainforestapi.com/request", { params })
     .then((response) => {
@@ -37,6 +45,7 @@ const setProductData = async ({ department }) => {
 
   const length = await data.search_results.length;
 
+  // looping over requested Products for further informations
   for (let i = 0; i < length; i++) {
     let data1 = await data.search_results[i];
     let asin = await data1.asin;

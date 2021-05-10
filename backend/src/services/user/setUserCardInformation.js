@@ -28,7 +28,6 @@ const setUserCardInformation = async ({
   }
 
   user.cardInformation = {
-    email,
     fullname,
     validThru,
     cardNr,
