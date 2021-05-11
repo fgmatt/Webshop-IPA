@@ -2,7 +2,7 @@
 const jwt = require("jsonwebtoken");
 
 // jwt_secret
-const { jwt_secret } = require("../jwt");
+const { jwt_secret } = require("../keys");
 
 // timestamp of creation of the token
 const timestamp = Math.floor(new Date().getTime() / 1000);

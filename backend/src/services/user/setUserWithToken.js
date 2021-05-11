@@ -23,7 +23,7 @@ const setUserWithToken = async ({ email }) => {
   if (user) {
     user.token = await tokenSign(email).token;
   } else {
-    user = await new User({
+    user = new User({
       email,
       token: tokenSign(email).token,
     });

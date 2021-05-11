@@ -11,6 +11,7 @@ const server = require("./graphQL/apollo-server");
 
 // mongoose connection
 require("./db");
+//require("./tests/db");
 
 // keys
 const { port } = require("./keys");
