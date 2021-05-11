@@ -1,6 +1,6 @@
 // services
 const checkUserHasCardInformation = require("./user/checkUserHasCardInformation");
-const getDepartmentAndProducts = require("./department/getDepartmentAndProducts");
+const getDepartmentWithProducts = require("./department/getDepartmentWithProducts");
 const getUserAddressInformation = require("./user/getUserAddressInformation");
 const getUserToken = require("./user/getUserToken");
 const getProductWithSpecifications = require("./department/getProductWithSpecifications");
@@ -11,7 +11,7 @@ const setUserWithToken = require("./user/setUserWithToken");
 
 module.exports = {
   checkUserHasCardInformation,
-  getDepartmentAndProducts,
+  getDepartmentWithProducts,
   getUserAddressInformation,
   getUserToken,
   getProductWithSpecifications,

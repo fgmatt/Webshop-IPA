@@ -29,11 +29,16 @@ const getProductWithSpecifications = async ({ productName, department }) => {
   }
 
   // find product in department by id
-  const Product = await searchedDepartment.products.find(
+  const product = await searchedDepartment.products.find(
     (arrProduct) => arrProduct.productName === productName
   );
 
-  return Product;
+  // product does not exists
+  if (!product) {
+    throw new ApolloError("Product does not exist");
+  }
+
+  return product;
 };
 
 module.exports = getProductWithSpecifications;

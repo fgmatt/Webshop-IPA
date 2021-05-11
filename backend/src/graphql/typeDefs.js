@@ -4,7 +4,7 @@ const { gql } = require("apollo-server-express");
 // schema definition
 const typeDefs = gql`
   type Query {
-    getDepartmentAndProducts(department: String!): Department!
+    getDepartmentWithProducts(department: String!): Department!
     getProductWithSpecifications(
       productName: String!
       department: String!

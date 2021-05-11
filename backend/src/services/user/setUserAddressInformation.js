@@ -4,6 +4,13 @@ const { UserInputError } = require("apollo-server-express");
 // service
 const User = require("./userService");
 
+// validation
+const {
+  max70AndOnlyLetters,
+  max70AndNoSpecialCharacters,
+  max10AndOnlyNumbersAndHyphen,
+} = require("../validation");
+
 /**
  * set a given user address information
  * @param {object} args
@@ -18,7 +25,7 @@ const setUserAddressInformation = async ({
   locality,
   country,
 }) => {
-  // check if email exists
+  // check if required values exists
   if (
     !email ||
     !firstname ||
@@ -28,8 +35,17 @@ const setUserAddressInformation = async ({
     !locality ||
     !country
   ) {
-    throw new UserInputError("You must provide an email");
+    throw new UserInputError("You must provide all values");
   }
+
+  max70AndOnlyLetters(firstname);
+  max70AndOnlyLetters(lastname);
+  max70AndOnlyLetters(locality);
+  max70AndOnlyLetters(country);
+
+  max70AndNoSpecialCharacters(street);
+
+  max10AndOnlyNumbersAndHyphen(postcode);
 
   let user = await User.findOne({ email });
 

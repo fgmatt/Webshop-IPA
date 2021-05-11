@@ -1,6 +1,6 @@
 const {
   checkUserHasCardInformation,
-  getDepartmentAndProducts,
+  getDepartmentWithProducts,
   getUserAddressInformation,
   getUserToken,
   getProductWithSpecifications,
@@ -16,8 +16,8 @@ const resolvers = {
     checkUserHasCardInformation: (parent, args) => {
       return checkUserHasCardInformation(args);
     },
-    getDepartmentAndProducts: (parent, args) => {
-      return getDepartmentAndProducts(args);
+    getDepartmentWithProducts: (parent, args) => {
+      return getDepartmentWithProducts(args);
     },
     getUserAddressInformation: (parent, args) => {
       return getUserAddressInformation(args);
