@@ -7,6 +7,7 @@ const rShoppingCart = "/shoppingCart";
 const rProductDetails = "/productDetails";
 const rAddressInformation = rProductDetails + "/addressInformation";
 const rCardInformation = rAddressInformation + "/cardInformation";
+const rPurchasedProduct = rCardInformation + "/purchasedProduct";
 
 export {
   rHome,
@@ -17,4 +18,5 @@ export {
   rShoppingCart,
   rAddressInformation,
   rCardInformation,
+  rPurchasedProduct,
 };

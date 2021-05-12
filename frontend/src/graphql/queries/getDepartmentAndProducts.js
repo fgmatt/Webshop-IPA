@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export default gql`
-  query GetDepartmentAndProduct($department: String!) {
-    getDepartmentAndProducts(department: $department) {
+  query GetDepartmentWithProducts($department: String!) {
+    getDepartmentWithProducts(department: $department) {
       department
       products {
         imageUrl

@@ -1,22 +1,26 @@
 // libraries
 import React, { useState } from "react";
-
 import { useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { useAuth0 } from "@auth0/auth0-react";
 
+// route
 import { rHome } from "../routes-name";
 
+// query
 import { setUserCardInformation } from "../graphql";
 
 const CardInformation = () => {
   // use history of react router
   const history = useHistory();
 
+  // check is user authenticated
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (!isAuthenticated) {
     history.push(rHome);
+  } else {
+    var email = user.email;
   }
 
   // state values
@@ -30,7 +34,7 @@ const CardInformation = () => {
     setUserCardInformation,
     {
       variables: {
-        email: user.email,
+        email,
         fullname: fullName,
         validThru,
         cardNr,

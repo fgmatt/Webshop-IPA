@@ -1,9 +1,12 @@
+// libraries
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
+// navBar
 import NavBar from "./elements/navBar";
 
+// routes
 import {
   rDesktopPcs,
   rLaptops,
@@ -11,18 +14,19 @@ import {
   rProductDetails,
 } from "../routes-name";
 
-import { getDepartmentAndProducts } from "../graphql";
+// query
+import { getDepartmentWithProducts } from "../graphql";
 
 const Department = ({ department, rDepartment }) => {
   const history = useHistory();
 
-  const { loading, error, data } = useQuery(getDepartmentAndProducts, {
+  const { loading, error, data } = useQuery(getDepartmentWithProducts, {
     variables: { department },
   });
 
   let products;
   if (data) {
-    products = data.getDepartmentAndProducts.products;
+    products = data.getDepartmentWithProducts.products;
   }
 
   const handleProductDetails = (productName) => {

@@ -4,14 +4,14 @@ const { gql } = require("apollo-server-express");
 // schema definition
 const typeDefs = gql`
   type Query {
+    checkUserHasCardInformation(email: String!): Boolean!
+    checkUserHasValidToken(email: String!): Boolean!
     getDepartmentWithProducts(department: String!): Department!
     getProductWithSpecifications(
       productName: String!
       department: String!
     ): Product!
     getUserAddressInformation(email: String!): AddressInformation!
-    getUserToken(email: String!): Token!
-    checkUserHasCardInformation(email: String!): Boolean!
   }
 
   type Mutation {
@@ -29,7 +29,7 @@ const typeDefs = gql`
       firstname: String!
       lastname: String!
       street: String!
-      postcode: Int!
+      postcode: String!
       locality: String!
       country: String!
     ): AddressInformation!
@@ -62,7 +62,7 @@ const typeDefs = gql`
     firstname: String!
     lastname: String!
     street: String!
-    postcode: Int!
+    postcode: String!
     locality: String!
     country: String!
   }

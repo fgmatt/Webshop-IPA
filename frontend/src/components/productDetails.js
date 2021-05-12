@@ -1,9 +1,12 @@
+// libraries
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
+// navigation
 import NavBar from "./elements/navBar";
 
+// routes
 import {
   rAddressInformation,
   rLaptops,
@@ -11,11 +14,14 @@ import {
   rDesktopPcs,
 } from "../routes-name";
 
+// query
 import { getProductWithSpecifications } from "../graphql";
 
 const ProductDetails = () => {
+  // history
   const history = useHistory();
 
+  // get product with specifications
   const department = sessionStorage.getItem("department");
   const productName = sessionStorage.getItem("productName");
 
@@ -23,11 +29,13 @@ const ProductDetails = () => {
     variables: { department, productName },
   });
 
+  // checking if data is recived
   let product;
   if (data) {
     product = data.getProductWithSpecifications;
   }
 
+  // go to address information
   const handlePurchase = () => {
     if (department === "desktop_pc") {
       history.push(rDesktopPcs + rAddressInformation);
@@ -37,6 +45,8 @@ const ProductDetails = () => {
       history.push(rMonitors + rAddressInformation);
     }
   };
+
+  // jsx
   return (
     <div>
       <NavBar />
